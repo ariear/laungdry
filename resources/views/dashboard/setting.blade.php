@@ -9,16 +9,20 @@
     </div>
     <!-- /.card-header -->
     <!-- form start -->
-    <form>
+    <form action="/dashboard/setting/{{ $system->id }}" method="POST" enctype="multipart/form-data" >
+        @method('put')
+        @csrf
       <div class="card-body">
         <div class="text-center mb-4">
-            <img src="/images/ppe.svg" class="img-thumbnail" alt="">
+            <img src="/storage/{{ $system->image }}" class="img-thumbnail" width="150" alt="">
         </div>
         <div class="form-group">
           <label for="exampleInputFile">Logo</label>
           <div class="input-group">
             <div class="custom-file">
-              <input type="file" class="custom-file-input" id="exampleInputFile">
+              <input type="hidden" name="isimage" value="isimage">
+              <input type="hidden" name="oldImage" value="{{ $system->image }}">
+              <input type="file" name="image" class="custom-file-input" id="exampleInputFile">
               <label class="custom-file-label" for="exampleInputFile">Choose file</label>
             </div>
           </div>
@@ -40,42 +44,44 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form action="/dashboard/setting/{{ $system->id }}" method="POST" >
+                @method('put')
+                @csrf
                 <div class="row">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="inputName">Nama sistem</label>
-                    <input type="text" class="form-control" id="inputName" placeholder="Enter name" name="name">
+                    <input type="text" class="form-control" id="inputName" placeholder="Enter name" name="system_name" value="{{ $system->system_name }}">
                   </div>
                   <div class="form-group">
                     <label for="nohp">No Hp Sistem</label>
-                    <input type="text" class="form-control" id="nohp" placeholder="Enter no hp" name="nohp">
+                    <input type="text" class="form-control" id="nohp" placeholder="Enter no hp" name="no_telp" value="{{ $system->no_telp }}">
                   </div>
                   <div class="form-group">
                     <label for="emailsistem">Email Sistem</label>
-                    <input type="email" class="form-control" id="emailsistem" placeholder="Enter email" name="email">
+                    <input type="email" class="form-control" id="emailsistem" placeholder="Enter email" name="email" value="{{ $system->email }}">
                   </div>
                   <div class="form-group">
                     <label for="alamat">Alamat</label>
-                    <textarea name="alamat" class="form-control" id="" cols="30" rows="3"></textarea>
+                    <textarea name="address" class="form-control" id="" cols="30" rows="3">{{ $system->address }}</textarea>
                   </div>
                 </div>
                 <div class="card-body">
                   <div class="form-group">
                     <label for="fb">Facebook</label>
-                    <input type="text" class="form-control" id="fb" placeholder="Enter Facebook url" name="fb">
+                    <input type="text" class="form-control" id="fb" placeholder="Enter Facebook url" name="fb" value="{{ $system->fb }}">
                   </div>
                   <div class="form-group">
                     <label for="ig">Instagram</label>
-                    <input type="text" class="form-control" id="ig" placeholder="Enter Instagram url" name="ig">
+                    <input type="text" class="form-control" id="ig" placeholder="Enter Instagram url" name="ig" value="{{ $system->ig }}" >
                   </div>
                   <div class="form-group">
                     <label for="tweet">Twitter</label>
-                    <input type="text" class="form-control" id="tweet" placeholder="Enter Twitter url" name="tweet">
+                    <input type="text" class="form-control" id="tweet" placeholder="Enter Twitter url" name="tweet" value="{{ $system->tweet }}" >
                   </div>
                   <div class="form-group">
                     <label for="wa">WhatsApp</label>
-                    <input type="text" class="form-control" id="wa" placeholder="Enter WhatsApp url" name="wa">
+                    <input type="text" class="form-control" id="wa" placeholder="Enter WhatsApp url" name="wa" value="{{ $system->wa }}" >
                   </div>
                 </div>
                 <!-- /.card-body -->

@@ -123,10 +123,15 @@ footer ul li{
 }
 
 .info-kontak{
+    width: 400px;
     list-style: none;
 }
 .info-kontak li{
     margin-bottom: 20px;
+    line-height: 25px;
+}
+.info-kontak li i {
+    margin-right: 5px;
 }
 .medsos{
     display: flex;
@@ -135,6 +140,9 @@ footer ul li{
 .medsos li{
     margin-right: 15px;
     font-size: 25px;
+}
+.medsos li a{
+    color: white;
 }
 
 
@@ -160,6 +168,9 @@ footer ul li{
 }
 .contact p{
     margin-bottom: 20px;
+}
+.contact a {
+    color: black;
 }
 .contact i{
     font-size: 25px;

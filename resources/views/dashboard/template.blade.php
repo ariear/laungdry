@@ -15,8 +15,8 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="/dist/css/adminlte.min.css">
   {{-- favicon --}}
-  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-<link rel="icon" href="/images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/storage/{{ $systems->image }}" type="image/x-icon">
+<link rel="icon" href="/storage/{{ $systems->image }}" type="image/x-icon">
 
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">

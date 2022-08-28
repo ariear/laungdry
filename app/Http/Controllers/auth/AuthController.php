@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\System;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
     public function index(){
+        $systemimage = System::find(1);
+
         return view('auth.login');
     }
 
