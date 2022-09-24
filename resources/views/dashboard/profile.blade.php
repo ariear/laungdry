@@ -12,14 +12,15 @@
     <form>
       <div class="card-body">
         <div class="text-center mb-4">
-            <img src="/images/ppe.svg" class="img-thumbnail" alt="">
+            <img id="output" >
+            <img src="{{ auth()->user()->pp ? auth()->user()->pp : '/images/blank-profile.png' }}" width="160" class="img-thumbnail" id="ppnow" >
         </div>
         <div class="form-group">
           <label for="exampleInputFile">Avatar</label>
           <div class="input-group">
             <div class="custom-file">
-              <input type="file" class="custom-file-input" id="exampleInputFile">
-              <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+              <input type="file" class="custom-file-input" id="exampleInputFile" onchange="loadFile(event)" >
+              <label class="custom-file-label" for="exampleInputFile" >Choose image</label>
             </div>
           </div>
         </div>
@@ -27,12 +28,12 @@
       <!-- /.card-body -->
 
       <div class="card-footer">
-        <button type="submit" class="btn btn-primary"><i class="bi bi-save2 mr-2"></i> Simpan</button>
+        <button type="submit" class="btn btn-primary" id="btnupdatepp" disabled ><i class="bi bi-save2 mr-2"></i> Simpan</button>
       </div>
     </form>
   </div>
 </div>
-<div class="col-md-7">
+<div class="col-md-8">
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
@@ -40,18 +41,31 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form action="/dashboard/profile/{{ auth()->user()->id }}" method="POST" >
+                @method('put')
+                @csrf
+                <div class="row">
                 <div class="card-body">
                   <div class="form-group">
                     <label for="inputName">Name</label>
-                    <input type="text" class="form-control" id="inputName" placeholder="Enter name" name="name" value="{{ auth()->user()->name }}">
+                    <input type="text" class="form-control" id="inputName" placeholder="Enter name" name="name" value="{{ auth()->user()->name }}" required >
                   </div>
                   <div class="form-group">
                     <label for="inputEmail">Email address</label>
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Enter email" name="email" value="{{ auth()->user()->email }}">
+                    <input type="email" class="form-control" disabled id="inputEmail" placeholder="Enter email" name="email" value="{{ auth()->user()->email }}" required >
+                  </div>
+                  <div class="form-group">
+                    <label for="inputNoHp">No HP</label>
+                    <input type="text" class="form-control" id="inputNoHp" placeholder="Enter No Hp" name="no_hp" value="{{ auth()->user()->no_hp }}" required >
                   </div>
                 </div>
-                <!-- /.card-body -->
+                <div class="card-body">
+                    <div class="form-group">
+                      <label for="address">Address</label>
+                      <textarea class="form-control" name="address" id="address" cols="30" rows="6" required >{{ auth()->user()->address }}</textarea>
+                    </div>
+                </div>
+                </div>
 
                 <div class="card-footer">
                   <button type="submit" class="btn btn-primary"><i class="bi bi-save2 mr-2"></i> Simpan</button>
@@ -88,3 +102,20 @@
 </div>
 </div>
 @endsection
+
+<script>
+    let loadFile = function(event) {
+    let ppnow = document.getElementById('ppnow')
+    ppnow.style.display = 'none'
+
+    document.getElementById('btnupdatepp').disabled = false
+
+    let output = document.getElementById('output')
+    output.style.width = '160px'
+    output.classList.add('img-thumbnail')
+    output.src = URL.createObjectURL(event.target.files[0])
+    output.onload = function() {
+      URL.revokeObjectURL(output.src)
+    }
+  };
+</script>

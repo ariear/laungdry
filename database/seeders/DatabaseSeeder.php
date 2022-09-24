@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\System;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -33,6 +34,16 @@ class DatabaseSeeder extends Seeder
             'ig' => 'instagram.com',
             'tweet' => 'tweet.com',
             'wa' => 'whatsapp.com',
+        ]);
+
+        User::factory()->create([
+            'pp' => '',
+            'name' => 'example',
+            'email' => 'example@gmail.com',
+            'password' => bcrypt('password'),
+            'role' => 'admin',
+            'no_hp' => '+628109547632',
+            'address' => 'Jember , Puger , Jawa Timur'
         ]);
     }
 }

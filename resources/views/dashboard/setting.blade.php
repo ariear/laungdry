@@ -14,7 +14,8 @@
         @csrf
       <div class="card-body">
         <div class="text-center mb-4">
-            <img src="/storage/{{ $system->image }}" class="img-thumbnail" width="150" alt="">
+            <img id="output">
+            <img src="{{ $system->image ? '/storage/' . $system->image : '/images/icons/icon.png' }}" class="img-thumbnail" width="160" class="ppnow" alt="">
         </div>
         <div class="form-group">
           <label for="exampleInputFile">Logo</label>
@@ -22,8 +23,8 @@
             <div class="custom-file">
               <input type="hidden" name="isimage" value="isimage">
               <input type="hidden" name="oldImage" value="{{ $system->image }}">
-              <input type="file" name="image" class="custom-file-input" id="exampleInputFile">
-              <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+              <input type="file" name="image" class="custom-file-input" onchange="loadFile(event)" id="exampleInputFile">
+              <label class="custom-file-label" for="exampleInputFile">Choose Logo</label>
             </div>
           </div>
         </div>
@@ -31,7 +32,7 @@
       <!-- /.card-body -->
 
       <div class="card-footer">
-        <button type="submit" class="btn btn-primary"><i class="bi bi-save2 mr-2"></i> Simpan</button>
+        <button type="submit" class="btn btn-primary" id="btnupdatepp" ><i class="bi bi-save2 mr-2"></i> Simpan</button>
       </div>
     </form>
   </div>
@@ -107,3 +108,20 @@
 </div>
 </div>
 @endsection
+
+<script>
+    let loadFile = function(event) {
+    let ppnow = document.getElementById('ppnow')
+    ppnow.style.display = 'none'
+
+    document.getElementById('btnupdatepp').disabled = false
+
+    let output = document.getElementById('output')
+    output.style.width = '160px'
+    output.classList.add('img-thumbnail')
+    output.src = URL.createObjectURL(event.target.files[0])
+    output.onload = function() {
+      URL.revokeObjectURL(output.src)
+    }
+  };
+</script>
