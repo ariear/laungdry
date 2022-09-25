@@ -41,7 +41,7 @@
             </li>
             <li class="nav-header">MENU UTAMA</li>
             <li class="nav-item">
-                <a href="/dashboard/profile" class="nav-link">
+                <a href="/dashboard/packets" class="nav-link">
                   <i class="nav-icon fas fa-cubes"></i>
                   <p>
                     Paket
