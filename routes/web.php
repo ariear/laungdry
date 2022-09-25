@@ -20,6 +20,7 @@ Route::get('/dashboard', [DashboardController::class,'index'])->middleware('auth
 
 Route::get('/dashboard/profile', [DashboardProfileController::class,'index'])->middleware('auth');
 Route::put('/dashboard/profile/{id}',[DashboardProfileController::class,'updateData'])->middleware('auth');
+Route::put('/dashboard/profile/{id}/updatepassword',[DashboardProfileController::class,'updatePassword'])->middleware('auth');
 
 Route::get('/dashboard/setting', [DashboardSettingController::class,'index'])->middleware('auth');
 Route::put('/dashboard/setting/{id}', [DashboardSettingController::class,'updateData'])->middleware('auth');

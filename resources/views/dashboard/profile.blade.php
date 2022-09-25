@@ -9,17 +9,21 @@
     </div>
     <!-- /.card-header -->
     <!-- form start -->
-    <form>
+    <form action="/dashboard/profile/{{ auth()->user()->id }}" method="POST" enctype="multipart/form-data" >
+        @method('put')
+        @csrf
       <div class="card-body">
         <div class="text-center mb-4">
-            <img id="output" >
-            <img src="{{ auth()->user()->pp ? auth()->user()->pp : '/images/blank-profile.png' }}" width="160" class="img-thumbnail" id="ppnow" >
+            <img id="output">
+            <img src="{{ auth()->user()->pp ? '/storage/' . auth()->user()->pp : '/images/blank-profile.png' }}" width="160" class="img-thumbnail" id="ppnow" >
         </div>
         <div class="form-group">
           <label for="exampleInputFile">Avatar</label>
           <div class="input-group">
             <div class="custom-file">
-              <input type="file" class="custom-file-input" id="exampleInputFile" onchange="loadFile(event)" >
+              <input type="hidden" name="isimage" value="isimage">
+              <input type="hidden" name="oldImage" value="{{ auth()->user()->pp }}">
+              <input type="file" name="pp" class="custom-file-input" id="exampleInputFile" onchange="loadFile(event)" >
               <label class="custom-file-label" for="exampleInputFile" >Choose image</label>
             </div>
           </div>
@@ -81,15 +85,17 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form action="/dashboard/profile/{{ auth()->user()->id }}/updatepassword" method="POST" >
+                @method('put')
+                @csrf
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="inputNewPassword">New Password</label>
-                    <input type="password" class="form-control" id="inputNewPassword" placeholder="Enter new password" name="new-password">
+                    <label for="inputNewPassword">Old Password</label>
+                    <input type="password" class="form-control" id="inputNewPassword" placeholder="Enter old password" name="old-pw">
                   </div>
                   <div class="form-group">
                     <label for="inputRepeatNewPassword">Repeat New Password</label>
-                    <input type="password" class="form-control" id="inputRepeatNewPassword" placeholder="Enter repeat new password" name="repeat-new-password">
+                    <input type="password" class="form-control" id="inputRepeatNewPassword" placeholder="Enter new password" name="new-password">
                   </div>
                 </div>
                 <!-- /.card-body -->

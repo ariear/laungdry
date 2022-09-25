@@ -15,7 +15,7 @@
       <div class="card-body">
         <div class="text-center mb-4">
             <img id="output">
-            <img src="{{ $system->image ? '/storage/' . $system->image : '/images/icons/icon.png' }}" class="img-thumbnail" width="160" class="ppnow" alt="">
+            <img src="{{ $system->image ? '/storage/' . $system->image : '/images/icons/icon.png' }}" class="img-thumbnail" width="160" id="ppnow" alt="">
         </div>
         <div class="form-group">
           <label for="exampleInputFile">Logo</label>
@@ -32,7 +32,7 @@
       <!-- /.card-body -->
 
       <div class="card-footer">
-        <button type="submit" class="btn btn-primary" id="btnupdatepp" ><i class="bi bi-save2 mr-2"></i> Simpan</button>
+        <button type="submit" class="btn btn-primary" id="btnupdatepp" disabled ><i class="bi bi-save2 mr-2"></i> Simpan</button>
       </div>
     </form>
   </div>
