@@ -15,7 +15,8 @@ class PacketController extends Controller
     public function index()
     {
         return view('dashboard.packet.index',[
-            'title' => 'Packet'
+            'title' => 'Packet',
+            'packets' => Packet::latest()->get()
         ]);
     }
 
@@ -39,7 +40,17 @@ class PacketController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validasi = $request->validate([
+            'name' => 'required',
+            'code_packet' => 'required',
+            'unit' => 'required',
+            'price' => 'required',
+            'desc' => 'required'
+        ]);
+
+        Packet::create($validasi);
+
+        return redirect('/dashboard/packets')->with('success','Paket baru berhasil dibuat');
     }
 
     /**
@@ -50,7 +61,10 @@ class PacketController extends Controller
      */
     public function show(Packet $packet)
     {
-        //
+        return view('dashboard.packet.single',[
+            'title' => 'Detail Paket',
+            'packet' => $packet
+        ]);
     }
 
     /**
@@ -61,7 +75,10 @@ class PacketController extends Controller
      */
     public function edit(Packet $packet)
     {
-        //
+        return view('dashboard.packet.edit',[
+            'title' => 'Edit Paket',
+            'packet' => $packet
+        ]);
     }
 
     /**
@@ -73,7 +90,17 @@ class PacketController extends Controller
      */
     public function update(Request $request, Packet $packet)
     {
-        //
+        $validasi = $request->validate([
+            'name' => 'required',
+            'code_packet' => 'required',
+            'unit' => 'required',
+            'price' => 'required',
+            'desc' => 'required'
+        ]);
+
+        $packet->update($validasi);
+
+        return redirect('/dashboard/packets')->with('success','Paket berhasil diperbarui');
     }
 
     /**
@@ -84,6 +111,8 @@ class PacketController extends Controller
      */
     public function destroy(Packet $packet)
     {
-        //
+        $packet->delete();
+
+        return redirect('/dashboard/packets')->with('Paket berhasil dihapus');
     }
 }

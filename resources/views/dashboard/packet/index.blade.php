@@ -19,15 +19,31 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <th class="font-weight-normal"></th>
-          <th class="font-weight-normal"></th>
-          <th class="font-weight-normal"></th>
-          <th class="font-weight-normal"></th>
-          <th> <a class="btn btn-danger " href="">Delete</a>
-            <a href="" class="btn btn-warning text-white">Edit</a>
-          </th>
-        </tr>
+            @forelse ($packets as $packet)
+            <tr>
+              <th class="font-weight-normal">{{ $loop->iteration }}</th>
+              <th class="font-weight-normal">{{ $packet->name }}</th>
+              <th class="font-weight-normal">{{ $packet->code_packet }}</th>
+              <th class="font-weight-normal">{{ $packet->price }}</th>
+              <th class="d-flex">
+                  <a href="/dashboard/packets/{{ $packet->id }}/edit" class="btn btn-warning text-white"><i class="fa fa-solid fa-pen"></i></a>
+                  <a href="/dashboard/packets/{{ $packet->id }}" class="btn btn-success mx-2"><i class="fa fa-solid fa-eye"></i></a>
+                <form action="/dashboard/packets/{{ $packet->id }}" method="post">
+                @method('DELETE')
+                @csrf
+                <button class="btn btn-danger"><i class="fa fa-solid fa-trash"></i></button>
+                </form>
+              </th>
+            </tr>
+            @empty
+            <tr>
+              <th class="font-weight-normal">Packet tersedia</th>
+              <th class="font-weight-normal"></th>
+              <th class="font-weight-normal"></th>
+              <th class="font-weight-normal"></th>
+              <th></th>
+            </tr>
+            @endforelse
         </tbody>
         <tfoot>
         <tr>
