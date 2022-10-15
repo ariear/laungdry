@@ -65,7 +65,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/dashboard/profile" class="nav-link">
+                <a href="/dashboard/spendings" class="nav-link">
                   <i class="nav-icon fas fa-money-bill"></i>
                   <p>
                     Pengeluaran

@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardSettingController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PacketController;
+use App\Http\Controllers\SpendingController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingController::class,'index']);
@@ -27,5 +28,6 @@ Route::put('/dashboard/profile/{id}/updatepassword',[DashboardProfileController:
 Route::get('/dashboard/setting', [DashboardSettingController::class,'index'])->middleware('auth');
 Route::put('/dashboard/setting/{id}', [DashboardSettingController::class,'updateData'])->middleware('auth');
 
-Route::resource('/dashboard/packets',PacketController::class);
-Route::resource('/dashboard/orders',OrderController::class);
+Route::resource('/dashboard/packets',PacketController::class)->middleware('auth');
+Route::resource('/dashboard/orders',OrderController::class)->middleware('auth');
+Route::resource('/dashboard/spendings', SpendingController::class)->middleware('auth');
