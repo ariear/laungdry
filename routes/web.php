@@ -8,6 +8,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PacketController;
 use App\Http\Controllers\SpendingController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [LandingController::class,'index']);
@@ -31,3 +32,4 @@ Route::put('/dashboard/setting/{id}', [DashboardSettingController::class,'update
 Route::resource('/dashboard/packets',PacketController::class)->middleware('auth');
 Route::resource('/dashboard/orders',OrderController::class)->middleware('auth');
 Route::resource('/dashboard/spendings', SpendingController::class)->middleware('auth');
+Route::resource('/dashboard/users', UserController::class)->middleware('auth');

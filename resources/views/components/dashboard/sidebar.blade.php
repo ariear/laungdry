@@ -24,7 +24,7 @@
                with font-awesome or any other icon font library -->
             <li class="nav-header">RINGKASAN</li>
             <li class="nav-item">
-                <a href="/dashboard" class="nav-link">
+                <a href="/dashboard" class="nav-link {{ Request::is('dashboard') ? "active" : '' }}">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
                     Dashboard
@@ -41,7 +41,7 @@
             </li>
             <li class="nav-header">MENU UTAMA</li>
             <li class="nav-item">
-                <a href="/dashboard/packets" class="nav-link">
+                <a href="/dashboard/packets" class="nav-link {{ Request::is('dashboard/packets*') ? "active" : '' }}">
                   <i class="nav-icon fas fa-cubes"></i>
                   <p>
                     Paket
@@ -49,7 +49,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/dashboard/orders" class="nav-link">
+                <a href="/dashboard/orders" class="nav-link {{ Request::is('dashboard/orders*') ? "active" : '' }}">
                   <i class="nav-icon fas fa-shopping-cart"></i>
                   <p>
                     Pesanan
@@ -57,7 +57,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/dashboard/profile" class="nav-link">
+                <a href="/dashboard/assets" class="nav-link {{ Request::is('dashboard/assets*') ? "active" : '' }}">
                   <i class="nav-icon fas fa-cube"></i>
                   <p>
                     Assets
@@ -65,7 +65,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/dashboard/spendings" class="nav-link">
+                <a href="/dashboard/spendings" class="nav-link {{ Request::is('dashboard/spendings*') ? "active" : '' }}">
                   <i class="nav-icon fas fa-money-bill"></i>
                   <p>
                     Pengeluaran
@@ -73,7 +73,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/dashboard/profile" class="nav-link">
+                <a href="/dashboard/reports" class="nav-link {{ Request::is('dashboard/reports*') ? "active" : '' }}">
                   <i class="nav-icon fas fa-file"></i>
                   <p>
                     Laporan
@@ -82,7 +82,7 @@
             </li>
             <li class="nav-header">MENU SISTEM</li>
             <li class="nav-item">
-                <a href="/dashboard/profile" class="nav-link">
+                <a href="/dashboard/profile" class="nav-link {{ Request::is('dashboard/profile*') ? "active" : '' }}">
                   <i class="nav-icon fas fa-user"></i>
                   <p>
                     Profil
@@ -90,7 +90,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/dashboard/profile" class="nav-link">
+                <a href="/dashboard/users" class="nav-link {{ Request::is('dashboard/users*') ? "active" : '' }}">
                   <i class="nav-icon fas fa-users"></i>
                   <p>
                     Pengguna
@@ -98,7 +98,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/dashboard/setting" class="nav-link">
+                <a href="/dashboard/setting" class="nav-link {{ Request::is('dashboard/setting*') ? "active" : '' }}">
                   <i class="nav-icon fas fa-cogs"></i>
                   <p>
                     Pengaturan
