@@ -49,7 +49,7 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="/dashboard/profile" class="nav-link">
+                <a href="/dashboard/orders" class="nav-link">
                   <i class="nav-icon fas fa-shopping-cart"></i>
                   <p>
                     Pesanan

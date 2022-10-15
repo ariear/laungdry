@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardProfileController;
 use App\Http\Controllers\DashboardSettingController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PacketController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,4 @@ Route::get('/dashboard/setting', [DashboardSettingController::class,'index'])->m
 Route::put('/dashboard/setting/{id}', [DashboardSettingController::class,'updateData'])->middleware('auth');
 
 Route::resource('/dashboard/packets',PacketController::class);
+Route::resource('/dashboard/orders',OrderController::class);

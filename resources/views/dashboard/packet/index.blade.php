@@ -23,8 +23,8 @@
             <tr>
               <th class="font-weight-normal">{{ $loop->iteration }}</th>
               <th class="font-weight-normal">{{ $packet->name }}</th>
-              <th class="font-weight-normal">{{ $packet->code_packet }}</th>
-              <th class="font-weight-normal">{{ $packet->price }}</th>
+              <th class="font-weight-normal">{{ $packet->unit }}</th>
+              <th class="font-weight-normal">Rp {{ number_format($packet->price) }} / {{ $packet->unit }}</th>
               <th class="d-flex">
                   <a href="/dashboard/packets/{{ $packet->id }}/edit" class="btn btn-warning text-white"><i class="fa fa-solid fa-pen"></i></a>
                   <a href="/dashboard/packets/{{ $packet->id }}" class="btn btn-success mx-2"><i class="fa fa-solid fa-eye"></i></a>

@@ -15,12 +15,15 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('order_code');
             $table->string('customer_name');
             $table->string('no_hp');
             $table->text('address');
             $table->enum('status',['Pending','Done'])->default('Pending');
             $table->text('desc');
+            $table->integer('weight');
             $table->foreignId('packet_id');
+            $table->integer('price');
             $table->timestamps();
         });
     }
