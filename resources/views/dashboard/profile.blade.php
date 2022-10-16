@@ -106,6 +106,17 @@
               </form>
             </div>
 </div>
+<div class="col-md-2">
+    <div class="card card-danger">
+        <div class="card-header">
+            <h3 class="card-title">Danger</h3>
+        </div>
+        <form action="/auth/logout" method="post">
+        @csrf
+            <button class="btn btn-danger m-3">Logout</button>
+        </form>
+    </div>
+</div>
 </div>
 @endsection
 

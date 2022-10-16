@@ -89,7 +89,7 @@
                   </p>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item @cannot('admin') d-none @endcannot">
                 <a href="/dashboard/users" class="nav-link {{ Request::is('dashboard/users*') ? "active" : '' }}">
                   <i class="nav-icon fas fa-users"></i>
                   <p>
@@ -97,7 +97,7 @@
                   </p>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item @cannot('admin') d-none @endcannot ">
                 <a href="/dashboard/setting" class="nav-link {{ Request::is('dashboard/setting*') ? "active" : '' }}">
                   <i class="nav-icon fas fa-cogs"></i>
                   <p>

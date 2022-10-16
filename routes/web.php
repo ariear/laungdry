@@ -26,10 +26,10 @@ Route::get('/dashboard/profile', [DashboardProfileController::class,'index'])->m
 Route::put('/dashboard/profile/{id}',[DashboardProfileController::class,'updateData'])->middleware('auth');
 Route::put('/dashboard/profile/{id}/updatepassword',[DashboardProfileController::class,'updatePassword'])->middleware('auth');
 
-Route::get('/dashboard/setting', [DashboardSettingController::class,'index'])->middleware('auth');
-Route::put('/dashboard/setting/{id}', [DashboardSettingController::class,'updateData'])->middleware('auth');
+Route::get('/dashboard/setting', [DashboardSettingController::class,'index'])->middleware('admin');
+Route::put('/dashboard/setting/{id}', [DashboardSettingController::class,'updateData'])->middleware('admin');
 
 Route::resource('/dashboard/packets',PacketController::class)->middleware('auth');
 Route::resource('/dashboard/orders',OrderController::class)->middleware('auth');
 Route::resource('/dashboard/spendings', SpendingController::class)->middleware('auth');
-Route::resource('/dashboard/users', UserController::class)->middleware('auth');
+Route::resource('/dashboard/users', UserController::class)->middleware('admin');
