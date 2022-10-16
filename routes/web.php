@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssetController;
 use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardProfileController;
@@ -32,4 +33,5 @@ Route::put('/dashboard/setting/{id}', [DashboardSettingController::class,'update
 Route::resource('/dashboard/packets',PacketController::class)->middleware('auth');
 Route::resource('/dashboard/orders',OrderController::class)->middleware('auth');
 Route::resource('/dashboard/spendings', SpendingController::class)->middleware('auth');
+Route::resource('/dashboard/assets', AssetController::class)->middleware('auth');
 Route::resource('/dashboard/users', UserController::class)->middleware('admin');
