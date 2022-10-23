@@ -38,8 +38,9 @@
               <th class="font-weight-normal"><p class="btn btn-sm {{ $order->status == 'Pending' ? 'btn-primary' : 'btn-success' }}">{{ $order->status }}</p></th>
               <th class="font-weight-normal">{{ number_format($order->price) }}</th>
               <th>
-                  <a href="/dashboard/orders/{{ $order->id }}/edit" class="btn btn-warning text-white"><i class="fa fa-solid fa-pen"></i></a>
-                  <a href="/dashboard/orders/{{ $order->id }}" class="btn btn-success mx-2"><i class="fa fa-solid fa-eye"></i></a>
+                  <a href="/dashboard/orders/{{ $order->id }}/edit" class="btn btn-warning text-white mr-2"><i class="fa fa-solid fa-pen"></i></a>
+                  <a href="/dashboard/orders/{{ $order->id }}" class="btn btn-success mr-2"><i class="fa fa-solid fa-eye"></i></a>
+                  <a href="/dashboard/invoice/{{ $order->id }}" class="btn btn-primary mr-2"><i class="fa fa-print"></i></a>
                 <form action="/dashboard/orders/{{ $order->id }}" method="post" class="d-inline">
                 @method('DELETE')
                 @csrf

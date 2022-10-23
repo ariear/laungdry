@@ -130,4 +130,10 @@ class OrderController extends Controller
 
         return redirect('/dashboard/orders')->with('success','Orderan berhasil dihapus');
     }
+
+    public function invoice(Request $request, $id){
+        return view('dashboard.order.invoice',[
+            'order' => Order::find($id)
+        ]);
+    }
 }
