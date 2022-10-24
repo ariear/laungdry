@@ -207,3 +207,18 @@ footer ul li{
     font-weight: 200;
     margin-top: 10px;
 }
+
+.not-found-invoice{
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+.table-check{
+    font-family: 'Roboto', sans-serif;
+    margin: 20px auto;
+    padding: 5px;
+    border: 1px solid;
+}
+.table-check tr td{
+    border: 1px solid;
+    padding: 5px 10px;
+}

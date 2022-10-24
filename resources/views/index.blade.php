@@ -11,28 +11,5 @@
     </aside>
 </main>
 
-<article class="parent-form-check-message">
-    <div class="form-check-message">
-        <h2>Cek Pesanan</h2>
-        <div class="wrap-input-check-message">
-            <div class="input-check-message">
-                <i class="fa bi bi-journal-text"></i>
-                <input type="text" placeholder="No. Invoice">
-            </div>
-            <div class="input-check-message">
-                <i class="fa bi bi-journal-text"></i>
-                <input type="text" placeholder="No. Invoice">
-            </div>
-            <div class="input-check-message">
-                <i class="fa bi bi-journal-text"></i>
-                <input type="text" placeholder="No. Invoice">
-            </div>
-            <div class="input-check-message">
-                <i class="fa bi bi-journal-text"></i>
-                <input type="text" placeholder="No. Invoice">
-            </div>
-        </div>
-        <button>Cek</button>
-    </div>
-</article>
+<livewire:check-order />
 @endsection
