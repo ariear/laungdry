@@ -21,6 +21,10 @@ Di web ini terdapat dua role yaitu
  
     php artisan migrate --seed
     
+lalu jalankan servernya
+
+    php artisan serve
+    
 ---
 
 Jika ingin login ke dashboard , pergi ke path `/auth/login` dengan default
