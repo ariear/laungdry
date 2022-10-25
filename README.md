@@ -22,3 +22,10 @@ Di web ini terdapat dua role yaitu
     php artisan migrate --seed
     
 ---
+
+Jika ingin login ke dashboard , pergi ke path /auth/login dengan default
+- Email : example@gmail.com
+- Password : password
+
+---
+## Preview
