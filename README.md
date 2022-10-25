@@ -17,13 +17,13 @@ Di web ini terdapat dua role yaitu
     git clone https://github.com/ariear/laungdry.git
     cd laungdry
     composer install 
- copy file .env.example dan paste dengan nama .env , pada bagian DB_DATABASE diberi isi laundry , lalu buat database baru di local dengan nama laundry , setelah itu migrate seperti perintah dibawah
+ copy file `.env.example` dan paste dengan nama `.env` , pada bagian `DB_DATABASE` diberi isi `laundry` , lalu buat database baru di local dengan nama `laundry` , setelah itu migrate seperti perintah dibawah
  
     php artisan migrate --seed
     
 ---
 
-Jika ingin login ke dashboard , pergi ke path /auth/login dengan default
+Jika ingin login ke dashboard , pergi ke path `/auth/login` dengan default
 - Email : example@gmail.com
 - Password : password
 
