@@ -12,10 +12,13 @@ Di web ini terdapat dua role yaitu
 - User
 
 ---
-Tutorial penggunaan
+### Tutorial penggunaan
 
     git clone https://github.com/ariear/laungdry.git
- setelah project di clone , kita menuju ke folder project , lalu copy file .env.example dan paste dengan nama .env , pada bagian DB_DATABASE diberi isi laundry , lalu buat database baru di local dengan nama laungdry , setelah itu migrate seperti perintah dibawah
+    cd laungdry
+    composer install 
+ copy file .env.example dan paste dengan nama .env , pada bagian DB_DATABASE diberi isi laundry , lalu buat database baru di local dengan nama laundry , setelah itu migrate seperti perintah dibawah
  
     php artisan migrate --seed
     
+---
