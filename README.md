@@ -32,4 +32,3 @@ Jika ingin login ke dashboard , pergi ke path `/auth/login` dengan default
 - Password : password
 
 ---
-## Preview
